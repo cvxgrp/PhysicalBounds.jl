@@ -1,0 +1,15 @@
+*.jl.*.cov
+*.jl.cov
+*.jl.mem
+.DS_Store
+.vscode/
+dev/
+Manifest.toml
+paper/figures
+paper/*.log
+paper/*.err
+
+/docs/build/
+/docs/src/examples/
+
+iterate.dat
