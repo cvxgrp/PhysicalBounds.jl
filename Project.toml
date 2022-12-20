@@ -17,7 +17,7 @@ SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 WaveOperators = "8a8a931e-bb7e-411d-b5ad-3690531b5574"
 
 [compat]
-julia = "1.7"
+julia = "1.8"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
