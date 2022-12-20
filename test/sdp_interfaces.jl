@@ -40,8 +40,8 @@
         primal_obj = Solvers.get_primal_obj(solver)
         x = Solvers.get_x(solver)
 
-        @test PB.unvec_symm_scs(x) ≈ Xv_primal
-        @test primal_obj ≈ pstar_primal
+        @test isapprox(PB.unvec_symm_scs(x), Xv_primal, rtol=1e-5)
+        @test isapprox(primal_obj, pstar_primal, rtol=1e-5)
 
         # Dual Form Solve
         model = PB.build_Hypatia_model_dual(C, Av, b)
@@ -49,8 +49,8 @@
         dual_obj = Solvers.get_primal_obj(solver)
         y = Solvers.get_x(solver)
 
-        @test dual_obj ≈ pstar_dual
-        @test y ≈ yv_dual
+        @test isapprox(dual_obj, pstar_dual, rtol=1e-5)
+        @test isapprox(y, yv_dual, rtol=1e-5)
     end
 
     @testset "COSMO" begin
@@ -76,12 +76,12 @@
     @testset "JuMP" begin
         model, X = PB.primal_problem_solve(C, Av, b)
         primal_obj = objective_value(model)
-        @test value.(X) ≈ Xv_primal
-        @test primal_obj ≈ pstar_primal
+        @test isapprox(value.(X), Xv_primal, rtol=1e-5)
+        @test isapprox(primal_obj, pstar_primal, rtol=1e-5)
 
         model, y = PB.dual_problem_solve(C, Av, b)
         dual_obj = objective_value(model)
-        @test dual_obj ≈ pstar_dual
-        @test value.(y) ≈ yv_dual
+        @test isapprox(dual_obj, pstar_dual, rtol=1e-5)
+        @test isapprox(value.(y), yv_dual, rtol=1e-5)
     end
 end
