@@ -7,13 +7,17 @@
 # st    b - Ax = 0
 #       h - Gx ∈ K
 @doc raw"""
-    build_Hypatia_model_primal(C::AbstractMatrix{T}, A::Vector{S}, b::AbstractVector{T}) where {T <: Real, S <: Union{AbstractSparseMatrix, AbstractMatrix}}
+    build_Hypatia_model_primal(
+        C::AbstractMatrix{T},
+        A::Vector{S},
+        b::AbstractVector{T}
+    ) where {T <: Real, S <: Union{AbstractSparseMatrix, AbstractMatrix}}
 
 Given an SDP in standard form
 ```math
 \begin{aligned}
-&& \text{maximize} & \mathbf{tr}(CX) \\
-&& \text{subject to} & \mathbf{tr}(A_iX) = b_i, \qquad i = 1, \dots, m \\
+& \text{maximize} && \mathbf{tr}(CX) \\
+& \text{subject to} && \mathbf{tr}(A_iX) = b_i, \qquad i = 1, \dots, m \\
 &&& X \succeq 0,
 \end{aligned}
 ```
@@ -50,13 +54,17 @@ end
 # st    b - Ax = 0
 #       h - Gx ∈ K
 @doc raw"""
-build_Hypatia_model_dual(C::AbstractMatrix{T}, A::Vector{S}, b::AbstractVector{T}) where {T <: Real, S <: AbstractMatrix{T}}
+    build_Hypatia_model_dual(
+        C::AbstractMatrix{T},
+        A::Vector{S},
+        b::AbstractVector{T}
+    ) where {T <: Real, S <: AbstractMatrix{T}}
 
 Given an SDP in LMI form
 ```math
 \begin{aligned}
-&& \text{minimize} & b^Ty \\
-&& \text{subject to} & \sum_{i=1}^m y_iA_i + C \succeq 0 \\
+& \text{minimize} && b^Ty \\
+& \text{subject to} && \sum_{i=1}^m y_iA_i + C \succeq 0 \\
 \end{aligned}
 ```
 builds and returns a Hypatia model.

@@ -1,5 +1,5 @@
 #=
-# Mode Converter Bounds and Design
+# Mode converter bounds and design
 We show how to compute bounds and a heuristic design for a mode converter. This
 example is similar to that in the numerical experiments section of
 [Bounds on Efficiency Metrics in Photonics](https://arxiv.org/abs/2204.05243).
@@ -92,7 +92,7 @@ sol_design = WaveOperators.solve(design)
 heatmap(abs.(sol_design), title="Final Field")
 
 #=
-## Bound computed using an SDP.
+## Bound computed using an SDP
 We compare the mode purity of our design to the upper bound.
 =#
 P, Q, A = PhysicalBounds.construct_matrices(g_functions, c)

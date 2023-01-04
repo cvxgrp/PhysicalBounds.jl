@@ -4,14 +4,14 @@
 Solves the SDP
 ```math
 \begin{aligned}
-&& \text{maximize} & \mathbf{tr}(CX) \\
-&& \text{subject to} & \mathbf{tr}(A_iX) = b_i, \qquad i = 1, \dots, m \\
+& \text{maximize} && \mathbf{tr}(CX) \\
+& \text{subject to} && \mathbf{tr}(A_iX) = b_i, \qquad i = 1, \dots, m \\
 &&& X \succeq 0,
 \end{aligned}
 ```
 where the $A_i$'s are stored in the vector `Av`, using the specified optimizer.
 
-Retuns the model and variable $X$, after running the solver.
+Returns the model and variable $X$, after running the solver.
 """
 function primal_problem_solve(C, Av, b; ineq = nothing, optimizer=Hypatia.Optimizer(verbose=false), warmstart_X=nothing)
     @assert isnothing(ineq) || length(ineq) == length(Av)
@@ -60,13 +60,13 @@ end
 Solves the 'dual' SDP
 ```math
 \begin{aligned}
-&& \text{minimize} & b^Ty \\
-&& \text{subject to} & \sum_{i=1}^m y_iA_i + C \succeq 0 \\
+& \text{minimize} && b^Ty \\
+& \text{subject to} && \sum_{i=1}^m y_iA_i + C \succeq 0 \\
 \end{aligned}
 ```
 where the $A_i$'s are stored in the vector `Av`, using the specified optimizer.
 
-Retuns the model and variable $y$, after running the solver.
+Returns the model and variable $y$, after running the solver.
 """
 function dual_problem_solve(C, Av, b; optimizer=Hypatia.Optimizer(verbose=false))
     @info "Setting up problem"

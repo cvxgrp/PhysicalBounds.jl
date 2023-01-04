@@ -1,5 +1,5 @@
 #=
-# Lens Bounds and Design
+# Lens bounds and design
 We show how to compute bounds and a heuristic design for a lens.
 =#
 
@@ -64,7 +64,7 @@ sol_initial = WaveOperators.solve(g)
 plt_input = heatmap(abs.(sol_initial), title="Initial Field")
 
 #=
-## Heuristic deign
+## Heuristic design
 
 First, we use LBFGS-B to find a heuristic design
 =#
@@ -83,7 +83,7 @@ sol_design = WaveOperators.solve(design)
 heatmap(abs.(sol_design), title="Final Field")
 
 #=
-## Bound computed using an SDP.
+## Bound computed using an SDP
 We compare the efficiency of our design to the upper bound.
 =#
 P, Q, A = PhysicalBounds.construct_matrices(g_functions, focal_spot_idx)

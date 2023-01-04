@@ -23,11 +23,11 @@ abstract type LBFGS end
         maxiter=250
     )
 
-Uses LBFGS-B to solve the physical design problem
+Uses L-BFGS-B to solve the physical design problem
 ```math
 \begin{aligned}
-&& \text{minimize} &-f(z) \\
-&& \text{subject to} & A(\theta)z = b \\
+& \text{minimize} &&-f(z) \\
+& \text{subject to} && A(\theta)z = b \\
 &&& 0 \le \theta \le 1.
 \end{aligned}
 ```
@@ -39,7 +39,7 @@ f(z) = \frac{\lvert c^Tz\rvert}{\|z\|^2} + \lambda\lvert c^Tz\rvert.
 Note that if we set $\lambda = 0$, we are optimizing for 'purity', whereas if
 we set $\lambda = \infty$, we are optimizing for power (in a particular mode).
 
-The solver warmstarts at `θ₀`. The LBFGSB solver has parameters 
+The solver warmstarts at `θ₀`. The L-BFGS-B solver has parameters 
 `m`, `factr`, `pgtol`, `iprint`, `maxfun`, and `maxiter`. See code for details.
 """
 function heuristic_solve(

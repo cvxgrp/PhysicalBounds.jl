@@ -3,8 +3,8 @@
 
 Converts `x` to real.
 
-If `x` is a Vector, returns
-the real and imaginary parts stacked: [real(x)ᵀ imag(x)ᵀ]ᵀ.
+If `x` is a `Vector``, returns
+the real and imaginary parts stacked: `[real(x)ᵀ imag(x)ᵀ]ᵀ`.
 
 If `x` is a matrix, returns
 [real(x) -imag(x) ; imag(x) real(x)]

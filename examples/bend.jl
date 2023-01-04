@@ -1,5 +1,5 @@
 #=
-# Bend Design
+# Bend design
 We show how to compute a heuristic design for a bend.
 =#
 
@@ -89,7 +89,7 @@ field_plt = heatmap(
 
 
 #=
-## Heuristic deign
+## Heuristic design
 
 We compute a heuristic design using LBFGSB
 =#

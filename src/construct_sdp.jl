@@ -1,8 +1,8 @@
-"""
+@doc raw"""
     contruct_matrices(physics::IntegralEquation, P::M, Q::M) where {M <: AbstractMatrix}
 
-Constructs the matrices P̄, Q̄, Āᵢ as in [[Angeris et al. 2021]](https://arxiv.org/abs/2204.05243)
-to construct the Semidefinite Program which provides efficiency bounds.
+Constructs the matrices ``\bar P, \bar Q, \bar A_i`` as in [[Angeris et al. 2021]](https://arxiv.org/abs/2204.05243)
+used to build the bounding semidefinite program.
 """
 function construct_matrices(physics::IntegralEquation, c_complex) where {M <: AbstractMatrix}
     Gd = to_real(physics.G_design)
@@ -64,7 +64,7 @@ end
 
 # https://github.com/cvxgrp/scs
 """
-   unvec_symm_scs(x)
+    unvec_symm_scs(x)
 
 Returns a dim-by-dim symmetric matrix corresponding to `x`.
 `x` is a vector of length dim*(dim + 1)/2, corresponding to a symmetric matrix
@@ -104,7 +104,7 @@ end
 
 
 """
-   vec_symm_scs(X)
+    vec_symm_scs(X)
 
 Returns a vectorized representation of a symmetric matrix `X`.
 `vec(X) = (X11, √2*X12, X22, √2*X13, X23, ..., Xkk)`
@@ -124,7 +124,7 @@ end
 
 
 """
-   vec_symm(X)
+    vec_symm(X)
 
 Returns a vectorized representation of a symmetric matrix `X`.
 `vec(X) = (X11, X12, X22, X13, X23, ..., Xkk)`
@@ -133,7 +133,7 @@ vec_symm(X) = X[LinearAlgebra.triu(trues(size(X)))]
 
 
 """
-   unvec_symm(x, dim)
+    unvec_symm(x, dim)
 
 Returns a dim-by-dim symmetric matrix corresponding to `x`.
 `x` is a vector of length dim*(dim + 1)/2, corresponding to a symmetric matrix
@@ -157,7 +157,7 @@ function unvec_symm(x::Vector{T}, dim::Int) where {T <: Number}
 end
 
 """
-   unvec_symm(x)
+    unvec_symm(x)
 
 Returns a dim-by-dim symmetric matrix corresponding to vector `x`, where `dim` 
 is the unique positive solution to `dim * (dim + 1) ÷ 2 = length(x)`:

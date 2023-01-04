@@ -53,8 +53,8 @@ end
 Given an SDP in LMI form
 ```math
 \begin{aligned}
-&& \text{minimize} & b^Ty \\
-&& \text{subject to} & \sum_{i=1}^m y_iA_i + C \succeq 0 \\
+& \text{minimize} && b^Ty \\
+& \text{subject to} && \sum_{i=1}^m y_iA_i + C \succeq 0 \\
 \end{aligned}
 ```
 builds and returns a COSMO model.
@@ -212,8 +212,8 @@ end
 Given an SDP in standard form
 ```math
 \begin{aligned}
-&& \text{maximize} & \mathbf{tr}(CX) \\
-&& \text{subject to} & \mathbf{tr}(A_iX) = b_i, \qquad i = 1, \dots, m \\
+& \text{maximize} && \mathbf{tr}(CX) \\
+& \text{subject to} && \mathbf{tr}(A_iX) = b_i, \qquad i = 1, \dots, m \\
 &&& X \succeq 0,
 \end{aligned}
 ```
