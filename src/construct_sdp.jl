@@ -4,7 +4,7 @@
 Constructs the matrices ``\bar P, \bar Q, \bar A_i`` as in [[Angeris et al. 2021]](https://arxiv.org/abs/2204.05243)
 used to build the bounding semidefinite program.
 """
-function construct_matrices(physics::IntegralEquation, c_complex) where {M <: AbstractMatrix}
+function construct_matrices(physics::IntegralEquation, c_complex)
     Gd = to_real(physics.G_design)
     Gt = to_real(physics.G_target)
     bd = to_real(physics.b_design)

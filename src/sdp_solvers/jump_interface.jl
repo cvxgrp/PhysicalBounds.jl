@@ -4,7 +4,7 @@
 Solves the SDP
 ```math
 \begin{aligned}
-& \text{maximize} && \mathbf{tr}(CX) \\
+& \text{minimize} && \mathbf{tr}(CX) \\
 & \text{subject to} && \mathbf{tr}(A_iX) = b_i, \qquad i = 1, \dots, m \\
 &&& X \succeq 0,
 \end{aligned}
