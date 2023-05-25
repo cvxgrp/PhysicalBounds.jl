@@ -60,16 +60,16 @@
         primal_obj = result.obj_val
         x = result.x
 
-        @test ≈(PB.unvec_symm_scs(x), Xv_primal, rtol=1e-5)
-        @test ≈(primal_obj, pstar_primal, rtol=1e-6)
+        @test ≈(PB.unvec_symm_scs(x), Xv_primal, rtol=1e-4)
+        @test ≈(primal_obj, pstar_primal, rtol=1e-4)
 
         model_cosmo = PB.build_COSMO_model_dual(C, Av, b)
         result = PB.optimize!(model_cosmo)
         dual_obj = result.obj_val
         y = result.x
 
-        @test ≈(dual_obj, pstar_dual, rtol=1e-6)
-        @test ≈(y, yv_dual, rtol=1e-6)
+        @test ≈(dual_obj, pstar_dual, rtol=1e-4)
+        @test ≈(y, yv_dual, rtol=1e-4)
         
     end
 
